@@ -27,6 +27,20 @@ pipenv run python create_schema.py # (only once)
 pipenv run python runner.py
 ```
 
+## Schedule
+
+Run:
+```
+crontab -e
+```
+
+Add to the end of the file:
+```
+*/15 * * * * cd <project directory> && /usr/bin/pipenv run python <project directory>/runner.py
+```
+
+`*/15 * * * *` equals every 15 minutes. Check [Crontab Guru](https://crontab.guru/) for a nice crontab editing experiencie.
+
 ## Author
 
 👤 **Marcelo Paixão Resende**
