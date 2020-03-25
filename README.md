@@ -23,9 +23,8 @@ pipenv install
 ## Usage
 
 ```sh
-pipenv shell
-python create_schema.py (only once)
-python runner.py
+pipenv run python create_schema.py # (only once)
+pipenv run python runner.py
 ```
 
 ## Author
