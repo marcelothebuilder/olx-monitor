@@ -9,7 +9,7 @@ class Product(Base):
     __tablename__ = 'product'
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
     keyword = Column(String)
-    olx_id = Column(Integer)
+    olx_id = Column(Integer, index=True, nullable=False, unique=True)
     title = Column(String)
     description = Column(String)
     price = Column(Float)
@@ -19,7 +19,7 @@ class Product(Base):
     image = Column(String)
     url = Column(String)
     date_time = Column(DateTime)
-    is_new = Column(Boolean)
+    is_new = Column(Boolean, index=True)
 
     @staticmethod
     def get_new():
