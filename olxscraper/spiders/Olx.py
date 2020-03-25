@@ -7,12 +7,14 @@ from scrapy.http import Request, HtmlResponse
 from database import Target, Product
 from olxscraper.items import Product as OlxProduct
 from olxscraper.loaders import ProductLoader
+import logging
 
 
 def _check_pending_products():
     query = Product.get_new().count()
     if query != 0:
-        raise CloseSpider(reason="Pending products found, aborting")
+        logging.getLogger(__name__).error("Pending products during start of spider")
+        # raise CloseSpider(reason="Pending products found, aborting")
 
 
 class OlxSpider(scrapy.Spider):
