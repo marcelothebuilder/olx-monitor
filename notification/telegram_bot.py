@@ -9,13 +9,13 @@ PLACEHOLDER_IMG = 'https://via.placeholder.com/640x380'
 
 MAX_DESCRIPTION_SIZE = 500
 
-updater = Updater(token=TOKEN, use_context=True)
-
 
 def send_notification(photo_url, title, description, price, city, region, url):
+    updater = Updater(token=TOKEN, use_context=True)
+
     photo_url = photo_url or PLACEHOLDER_IMG
 
-    #truncate
+    # truncate
     description = description[:MAX_DESCRIPTION_SIZE] + '...' if len(description) > MAX_DESCRIPTION_SIZE else description
 
     markdown_message = f"""
