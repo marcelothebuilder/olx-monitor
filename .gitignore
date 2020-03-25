@@ -212,3 +212,4 @@ dmypy.json
 /workspace.xml
 .env
 olx.sqlite
+*.log
