@@ -8,10 +8,9 @@ pylint = "*"
 autopep8 = "*"
 
 [packages]
-scrapy = "*"
+Scrapy = "*"
 pudb = "*"
-scrapy-deltafetch = "*"
-sqlalchemy = "*"
+SQLAlchemy = "*"
 python-telegram-bot = "*"
 python-dotenv = "*"
 
