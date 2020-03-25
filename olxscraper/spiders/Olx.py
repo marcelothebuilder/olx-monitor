@@ -17,7 +17,7 @@ def _check_pending_products():
 
 class OlxSpider(scrapy.Spider):
     name = 'Olx'
-    allowed_domains = ['mg.olx.com.br']
+    allowed_domains = ['olx.com.br']
     requests = 0
 
     _check_pending_products()
