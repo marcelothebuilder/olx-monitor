@@ -6,6 +6,15 @@
 
 ## Install
 
+Create a .env file with the following options:
+
+```
+TELEGRAM_BOT_TOKEN="<bot token:string>"
+TELEGRAM_BOT_CHAT_ID=<chat id:int>
+```
+
+Then:
+
 ```sh
 pipenv shell
 pipenv install
