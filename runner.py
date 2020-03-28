@@ -1,8 +1,8 @@
 from twisted.internet.defer import Deferred
 
-from database.setup import run_database_setup
 from app_logging.logging import configure_app_logging
-from olxscraper.configuration import load_configuration
+from database.setup import run_database_setup
+from olxscraper.configuration import load_configuration, get_path_to_configuration_file
 from paths.configuration_folder import ConfigurationFolder
 
 ConfigurationFolder.create_if_absent()
@@ -23,8 +23,27 @@ import signal
 import os
 
 runner = CrawlerRunner(settings=get_project_settings())
-handlers = logging.root.handlers
 logger = logging.getLogger(__name__)
+
+
+def check_mandatory_configuration():
+    mandatory_keys = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_BOT_CHAT_ID']
+    missing_keys = list(filter(lambda mandatory_key: os.getenv(mandatory_key) is None, mandatory_keys))
+
+    if len(missing_keys) > 0:
+        configuration_file = get_path_to_configuration_file()
+
+        logger.error(f'Required config keys {str(missing_keys)} not set.')
+        logger.error(f'You can set these keys through:')
+        logger.error(f'* {configuration_file} file')
+        logger.error(f'* .env file in the current folder')
+        logger.error(f'* Through enviroment variables')
+
+        exit(1)
+
+
+check_mandatory_configuration()
+
 
 def handle_sigint(signalnum, handler):
     runner.stop().addBoth(lambda x: reactor.stop())

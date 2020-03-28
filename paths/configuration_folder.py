@@ -3,12 +3,12 @@ from pathlib import Path
 
 class ConfigurationFolder:
     @staticmethod
-    def _get_path():
+    def get_path():
         return Path.home().joinpath('.olx-monitor')
 
     @staticmethod
     def create_if_absent():
-        path = ConfigurationFolder._get_path()
+        path = ConfigurationFolder.get_path()
         path.mkdir(mode=0o755, exist_ok=True)
         return path
 
@@ -20,4 +20,4 @@ class ConfigurationFolder:
 
     @staticmethod
     def joinpath(*args):
-        return ConfigurationFolder._get_path().joinpath(*args)
+        return ConfigurationFolder.get_path().joinpath(*args)

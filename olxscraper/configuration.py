@@ -1,11 +1,14 @@
-from pathlib import Path
-
 from dotenv import load_dotenv
 
+from paths.configuration_folder import ConfigurationFolder
+
+
+def get_path_to_configuration_file():
+    return ConfigurationFolder.joinpath('.config')
 
 def load_configuration():
-    app_folder = Path.home().joinpath('.olx-monitor')
-    user_folder_config = app_folder.joinpath('.config')
+
+    user_folder_config = get_path_to_configuration_file()
     if user_folder_config.exists():
         load_dotenv(verbose=False, dotenv_path=str(user_folder_config))
     else:
