@@ -24,6 +24,8 @@ import sys
 
 scheduled = '--scheduled' in sys.argv[1:]
 
+logging = logging.getLogger(__name__)
+
 
 def handle_sigint(signalnum, handler):
     runner.stop().addBoth(lambda x: reactor.stop())
