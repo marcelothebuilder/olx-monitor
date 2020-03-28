@@ -11,6 +11,8 @@ from sqlalchemy import func
 from database import session, Product
 from olxscraper.items import Product as OlxProduct
 
+import logging
+
 
 class OlxscraperPipeline(object):
     def process_item(self, item: OlxProduct, spider):
@@ -29,13 +31,13 @@ class OlxscraperPipeline(object):
             is_new=not item.get('is_new')
         )
 
-        is_already_registered = session\
-            .query(func.count(Product.id))\
-            .filter(Product.olx_id == product.olx_id)\
-            .scalar() != 0
+        is_already_registered = session \
+                                    .query(func.count(Product.id)) \
+                                    .filter(Product.olx_id == product.olx_id) \
+                                    .scalar() != 0
 
         if is_already_registered:
-            print("Skipping product, already inserted")
+            logging.warning("Skipping product, already inserted")
             raise DropItem()
 
         session.add(product)
