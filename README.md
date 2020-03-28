@@ -6,6 +6,11 @@
 
 ## Install
 
+Please read first [Creating a Telegram bot with BotFather - telegram.org](https://core.telegram.org/bots#6-botfather)
+and
+[Telegram Bot - how to get a group chat id? - Stackoverflow](https://stackoverflow.com/a/32572159/11128168)
+
+
 Create a .env file with the following options:
 
 ```
