@@ -92,6 +92,15 @@ Add to the end of the file:
 
 `*/15 * * * *` equals every 15 minutes. Check [Crontab Guru](https://crontab.guru/) for a nice crontab editing experience.
 
+## Running with docker
+
+A standard Dockerfile is provided. Below is an example on how to run with docker.
+
+```shell script
+docker build . --tag olx-monitor
+docker run -v <host path to keywords-to-import.json>:/opt/app/keywords-to-import.json -e TELEGRAM_BOT_TOKEN="<telegram token>" -e TELEGRAM_BOT_CHAT_ID=<telegram chat id> olx-monitor
+```
+
 ## Author
 
 👤 **Marcelo Paixão Resende**
