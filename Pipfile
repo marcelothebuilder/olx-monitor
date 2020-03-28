@@ -13,6 +13,7 @@ pudb = "*"
 SQLAlchemy = "*"
 python-telegram-bot = "*"
 python-dotenv = "*"
+schedule = "*"
 
 [requires]
 python_version = "3.7"
