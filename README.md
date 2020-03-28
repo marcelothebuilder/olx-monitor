@@ -13,38 +13,84 @@ and
 
 Create a .env file with the following options:
 
-```
+```dotenv
 TELEGRAM_BOT_TOKEN="<bot token:string>"
 TELEGRAM_BOT_CHAT_ID=<chat id:int>
 ```
 
 Then:
 
-```sh
+```shell script
 pipenv shell
 pipenv install
 ```
 
+## Initial data
+
+This app needs keywords to be registered in order to know what to look for.
+
+You can save a file in the format below at `<current working directory>/keywords-to-import.json` or `<home>/.olx-monitor/keywords-to-import.json`:
+
+```json
+[
+	{
+	    "keywords": [ "<any keyword>" ],
+	    "state": "<olx brazilian state id>",
+	    "state_region": "<olx brazilian state region>",
+	    "region_subregion": "<olx brazilian subregion>",
+	    "city": "<olx brazilian city",
+	    "category": "<olx category>"
+	}
+]
+```
+
+This is a working example:
+
+```json
+[
+	{
+	    "keywords": [ "switch", "psp", "metal gear" ],
+	    "state": "mg",
+	    "state_region": "regiao-de-uberlandia-e-uberaba",
+	    "region_subregion": "triangulo-mineiro",
+	    "city": "uberlandia",
+	    "category": "videogames"
+	}
+]
+```
+
 ## Usage
 
-```sh
-pipenv run python create_schema.py # (only once)
+```shell script
 pipenv run python runner.py
 ```
 
 ## Schedule
 
-Run:
+### Using the app continuous run mechanism
+
+Start the app with:
+```shell script
+pipenv run python runner.py --scheduled
 ```
+
+The config key `DELAY_BETWEEN_CRAWLS` can be set in seconds to tune the delay between crawl runs. Set it in the config
+file or pass through environment variables.
+
+
+### Using crontab
+
+Run:
+```shell script
 crontab -e
 ```
 
 Add to the end of the file:
-```
+```text
 */15 * * * * cd <project directory> && /usr/bin/pipenv run python <project directory>/runner.py
 ```
 
-`*/15 * * * *` equals every 15 minutes. Check [Crontab Guru](https://crontab.guru/) for a nice crontab editing experiencie.
+`*/15 * * * *` equals every 15 minutes. Check [Crontab Guru](https://crontab.guru/) for a nice crontab editing experience.
 
 ## Author
 

@@ -1,1 +1,2 @@
 import paths.configuration_folder
+import paths.current_folder

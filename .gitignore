@@ -213,3 +213,5 @@ dmypy.json
 .env
 olx.sqlite
 *.log
+keywords-to-import.json.imported
+keywords-to-import.json
