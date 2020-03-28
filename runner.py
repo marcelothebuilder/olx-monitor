@@ -20,10 +20,6 @@ import os
 
 runner = CrawlerRunner(settings=get_project_settings())
 
-import sys
-
-scheduled = '--scheduled' in sys.argv[1:]
-
 logging = logging.getLogger(__name__)
 
 
@@ -71,7 +67,10 @@ def run_in_single_run_mode():
 
 
 if __name__ == '__main__':
-    if scheduled:
+
+    import sys
+
+    if '--scheduled' in sys.argv[1:]:
         run_in_scheduled_mode()
     else:
         run_in_single_run_mode()
