@@ -1,10 +1,14 @@
-from scrapy.utils.log import configure_logging
 from twisted.internet.defer import Deferred
 
+from database.setup import run_database_setup
+from app_logging.logging import configure_app_logging
 from olxscraper.configuration import load_configuration
+from paths.configuration_folder import ConfigurationFolder
 
+ConfigurationFolder.create_if_absent()
 load_configuration()
-configure_logging()
+configure_app_logging()
+run_database_setup()
 
 from olxscraper.spiders.Olx import OlxSpider
 
@@ -19,16 +23,15 @@ import signal
 import os
 
 runner = CrawlerRunner(settings=get_project_settings())
-
-logging = logging.getLogger(__name__)
-
+handlers = logging.root.handlers
+logger = logging.getLogger(__name__)
 
 def handle_sigint(signalnum, handler):
     runner.stop().addBoth(lambda x: reactor.stop())
 
 
 def schedule_next(seconds_from_now: float):
-    logging.info(f'Scheduling next job for {seconds_from_now} seconds from now')
+    logger.info(f'Scheduling next job for {seconds_from_now} seconds from now')
     reactor.callLater(seconds_from_now, lambda: crawl())
 
 
@@ -38,28 +41,28 @@ def schedule_next_with_user_configuration():
 
 
 def crawl():
-    logging.getLogger(__name__).info("Starting job")
+    logger.info("Starting job")
 
     runner.crawl(OlxSpider)
 
     d: Deferred = runner.join()
 
-    d.addErrback(lambda _: logging.error('Crawling errored'))
-    d.addCallback(lambda _: logging.info('Crawling finished without errors'))
+    d.addErrback(lambda _: logger.error('Crawling errored'))
+    d.addCallback(lambda _: logger.info('Crawling finished without errors'))
     d.addCallback(lambda _: schedule_next_with_user_configuration())
 
     return d
 
 
 def run_in_scheduled_mode():
-    logging.info('Running in scheduled mode')
+    logger.info('Running in scheduled mode')
     signal.signal(signal.SIGINT, handle_sigint)
     schedule_next_with_user_configuration()
     reactor.run()
 
 
 def run_in_single_run_mode():
-    logging.info('Running in single run mode')
+    logger.info('Running in single run mode')
     runner.crawl(OlxSpider)
     d: Deferred = runner.join()
     d.addBoth(lambda _: reactor.stop())

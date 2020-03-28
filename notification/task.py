@@ -1,7 +1,7 @@
 from database import Product, session
 from notification.telegram_bot import TelegramBot
 
-import logging
+import app_logging
 
 
 def send_notifications():
@@ -15,7 +15,7 @@ def send_notifications():
             p.is_new = False
             session.commit()
         except:
-            logging.exception(f"Error while notifying user about product {p.olx_id} - {p.title}")
+            app_logging.exception(f"Error while notifying user about product {p.olx_id} - {p.title}")
 
 
 if __name__ == '__main__':

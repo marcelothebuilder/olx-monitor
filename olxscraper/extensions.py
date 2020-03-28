@@ -1,7 +1,6 @@
 import logging
 
-from scrapy import signals, Spider
-from scrapy.exceptions import CloseSpider
+from scrapy import signals
 
 from database import Target
 from notification.task import send_notifications

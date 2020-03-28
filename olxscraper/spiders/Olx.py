@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import logging
+import app_logging
 
 import scrapy
 from scrapy.http import Request, HtmlResponse
@@ -13,7 +13,7 @@ from olxscraper.loaders import ProductLoader
 def _check_pending_products():
     query = Product.get_new().count()
     if query != 0:
-        logging.getLogger(__name__).error("Pending products during start of spider")
+        app_logging.getLogger(__name__).error("Pending products during start of spider")
 
 
 class OlxSpider(scrapy.Spider):

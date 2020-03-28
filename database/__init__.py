@@ -1,6 +1,5 @@
 import logging
 
-
 from database.engine import engine
 from database.session import session
 from database.product import Product
