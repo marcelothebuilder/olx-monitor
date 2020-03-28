@@ -55,7 +55,7 @@ def schedule_next(seconds_from_now: float):
 
 
 def schedule_next_with_user_configuration():
-    sec = float(os.getenv('DELAY_BETWEEN_CRAWLS', 60))
+    sec = float(os.getenv('DELAY_BETWEEN_CRAWLS', 15 * 60))
     schedule_next(sec)
 
 
