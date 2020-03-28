@@ -76,7 +76,7 @@ def crawl():
 def run_in_scheduled_mode():
     logger.info('Running in scheduled mode')
     signal.signal(signal.SIGINT, handle_sigint)
-    schedule_next_with_user_configuration()
+    crawl()
     reactor.run()
 
 
