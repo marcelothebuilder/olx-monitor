@@ -101,6 +101,32 @@ docker build . --tag olx-monitor
 docker run -v <host path to keywords-to-import.json>:/opt/app/keywords-to-import.json -e TELEGRAM_BOT_TOKEN="<telegram token>" -e TELEGRAM_BOT_CHAT_ID=<telegram chat id> olx-monitor
 ```
 
+## Troubleshooting
+
+Add this to your PATH if pipenv is not found:
+```shell script
+PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+PATH="$PATH:$PYTHON_BIN_PATH"
+```
+
+If
+```shell script
+libgcc_s.so.1 must be installed for pthread_cancel to work
+Aborted
+```
+
+then
+
+For Fedora
+```shell script
+sudo yum install java-1.8.0-openjdk.i686 
+```
+
+For debian-based
+```shell script
+sudo apt install openjdk-8-jdk
+```
+
 ## Author
 
 👤 **Marcelo Paixão Resende**
