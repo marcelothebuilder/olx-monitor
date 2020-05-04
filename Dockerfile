@@ -7,7 +7,7 @@ RUN mkdir -p /opt/app
 WORKDIR /opt/app
 ADD Pipfile /opt/app
 ADD Pipfile.lock /opt/app
-RUN pipenv install
+RUN pipenv install --system --deploy
 ADD . /opt/app
 CMD pipenv run python runner.py --scheduled
 
