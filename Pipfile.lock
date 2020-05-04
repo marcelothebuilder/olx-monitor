@@ -254,11 +254,11 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:6d69fb04dc8d83e01cb25a0d83aaa2a1a4b7d5b14cd38b9f8922a567b4a4a510",
-                "sha256:af36fbf051415ded8b2633f27b71d292efcd85d58a647a1f138db191380144ff"
+                "sha256:218b0583afb8baeefe6f2f1ddd8f1bb1ae30f0af3ce9160a372abd2cdf258eef",
+                "sha256:6878cc642114c8c116ceada41639a9df487f42d5478d9f34cae513cc5c260dee"
             ],
             "index": "pypi",
-            "version": "==12.5.1"
+            "version": "==12.7"
         },
         "queuelib": {
             "hashes": [
