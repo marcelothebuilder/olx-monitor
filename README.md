@@ -99,6 +99,8 @@ A standard Dockerfile is provided. Below is an example on how to run with docker
 ```shell script
 docker build . --tag olx-monitor
 docker run -v <host path to keywords-to-import.json>:/opt/app/keywords-to-import.json -e TELEGRAM_BOT_TOKEN="<telegram token>" -e TELEGRAM_BOT_CHAT_ID=<telegram chat id> olx-monitor
+docker update --restart=always <container> # optional
+
 ```
 
 ## Troubleshooting
