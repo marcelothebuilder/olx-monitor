@@ -1,7 +1,8 @@
 repo_name: marcelothebuilder/olx-monitor
 report_id: c839ca4382a0d79b3e34033359aeb271
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-10T20:05:33+00:00'
+timestamp: '2024-01-05T08:52:23+00:00'
 requested_by: marcelothebuilder
 provider: github
 branch: master
@@ -16,6 +17,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor
   detection_source: Repo Metadata
 - name: Docker
   description: Enterprise Container Platform for High-Velocity Innovation.
@@ -26,6 +28,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Virtual Machine Platforms & Containers
   image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -35,6 +38,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor
   detection_source: Repo Metadata
 - name: PyPI
   description: A repository of software for the Python programming language
@@ -44,6 +48,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Hosted Package Repository
   image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 06:40:08.000000000 Z
@@ -57,38 +62,40 @@ tools:
   category: Build, Test, Deploy
   sub_category: Code Review
   image_url: https://img.stackshare.io/service/4837/py.jpg
-  detection_source_url: Pipfile.lock
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile.lock
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 06:40:08.000000000 Z
 - name: SQLAlchemy
   description: Database Abstraction Library
-  package_url: https://pypi.org/SQLAlchemy
+  package_url: https://pypi.org/project/SQLAlchemy
   license: MIT
   open_source: true
   hosted_saas: false
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/19847/default_db2ab2702f70e20c272f6ce65251108fb2b8f1ea.png
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 07:02:02.000000000 Z
 - name: Scrapy
   description: A high-level Web Crawling and Web Scraping framework
-  package_url: https://pypi.org/Scrapy
+  package_url: https://pypi.org/project/Scrapy
   license: BSD-3-Clause
   open_source: true
   hosted_saas: false
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20044/default_15ea2ed8281eccea374610791971ca44800f16ec.png
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 07:02:02.000000000 Z
 - name: autopep8
   description: A tool that automatically formats Python code to conform to the PEP
     8 style guide
-  package_url: https://pypi.org/autopep8
+  package_url: https://pypi.org/project/autopep8
   version: '1.5'
   license: MIT
   open_source: true
@@ -96,13 +103,13 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20353/default_4fff53bc8c15a9ea5decdac96fdba9b8874b07ce.png
-  detection_source_url: Pipfile.lock
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile.lock
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 06:40:08.000000000 Z
 - name: python-dotenv
   description: Add .env support to your django/flask apps in development and deployments
-  package_url: https://pypi.org/python-dotenv
+  package_url: https://pypi.org/project/python-dotenv
   version: 0.12.0
   license: BSD-3-Clause
   open_source: true
@@ -110,13 +117,13 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20095/default_3141eabecdd8efa55de73a33c43f2ac0d5bbf954.png
-  detection_source_url: Pipfile.lock
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile.lock
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 06:40:08.000000000 Z
 - name: python-telegram-bot
   description: We have made you a wrapper you can't refuse
-  package_url: https://pypi.org/python-telegram-bot
+  package_url: https://pypi.org/project/python-telegram-bot
   version: 12.5.1
   license: GPL-3.0
   open_source: true
@@ -124,13 +131,13 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20123/default_c68325cce20e10071c4ad3e54c2ee159ac131c11.png
-  detection_source_url: Pipfile.lock
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile.lock
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-25 06:40:08.000000000 Z
 - name: schedule
   description: Job scheduling for humans
-  package_url: https://pypi.org/schedule
+  package_url: https://pypi.org/project/schedule
   version: 0.6.0
   license: MIT
   open_source: true
@@ -138,7 +145,7 @@ tools:
   category: Libraries
   sub_category: PyPI Packages
   image_url: https://img.stackshare.io/package/20213/default_91afeaad6f5d17a2b513346f3f744a53cbd8a9ad.png
-  detection_source_url: Pipfile.lock
+  detection_source_url: https://github.com/marcelothebuilder/olx-monitor/blob/master/Pipfile.lock
   detection_source: Pipfile
   last_updated_by: Marcelo Paixão Resende
   last_updated_on: 2020-03-28 09:27:56.000000000 Z
